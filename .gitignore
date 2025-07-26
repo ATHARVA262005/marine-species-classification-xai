@@ -30,11 +30,12 @@ ENV/
 env.bak/
 venv.bak/
 
-# PyTorch Models (large files)
-*.pth
-*.pt
-*.pkl
-*.pickle
+# Large training data and checkpoints (exclude large files but keep final models)
+data/images/
+data/marine-animal-images/
+*checkpoint*.pth
+*temp*.pth
+*epoch*.pth
 
 # Jupyter Notebook Checkpoints
 .ipynb_checkpoints/
@@ -43,13 +44,15 @@ venv.bak/
 # Dataset (too large for GitHub)
 data/images/
 data/marine-animal-images/
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.bmp
-*.tiff
-*.webp
+
+# Allow outputs folder but exclude data folder images
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.gif
+data/**/*.bmp
+data/**/*.tiff
+data/**/*.webp
 
 # IDE
 .vscode/
@@ -67,10 +70,10 @@ data/marine-animal-images/
 ehthumbs.db
 Thumbs.db
 
-# Logs
-*.log
-logs/
-outputs/logs/
+# Logs (allow visualization logs but exclude training logs)
+training_*.log
+training.log
+debug_*.log
 
 # Temporary files
 *.tmp
